@@ -1,37 +1,39 @@
 import React from "react";
 import styled from "styled-components";
 
-const FilterBox = styled.div`
-  margin: 1vw;
-  padding-left: 2vw;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  height: 97vh;
-  width: 25vw;
-`;
+const ContainerFiltro = styled.div`
 
+height:100%;
+`;
 const Input = styled.input`
-  display: flex;
-  margin-bottom: 1vh;
-  width: 75%;
+  height: 35px;
+  width: 100%;
 `;
 
 class Filtro extends React.Component {
   render() {
     return (
-      <FilterBox>
-      <h2>Filtro:</h2>
-
-      <label>Valor Mínimo:</label>
-      <Input type="number" onChange="" />
-      <label>Valor Máximo:</label>
-      <Input type="number" onChange="" />
-      <label>Buscar Produto:</label>
-      <Input type="text" onChange="" />
-    </FilterBox>
-    )
+      <ContainerFiltro>
+        <fieldset>
+          <h1>Filtros:</h1>
+          <label for="minimo">Valor mínimo</label>
+          <Input
+            onChange={this.props.inputValorMin}
+            name="minimo"
+            type="number"
+          />
+          <label for="maximo">Valor máximo</label>
+          <Input
+            onChange={this.props.inputValorMax}
+            name="maximo"
+            type="number"
+          />
+          <label for="buscar">Buscar Produto</label>
+          <Input onChange={this.props.inputBuscar} name="buscar" type="text" />
+        </fieldset>
+      </ContainerFiltro>
+    );
   }
 }
 
-export default Filtro
+export default Filtro;
