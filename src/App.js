@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import ContainerProduto from "./Components/ContainerProduto";
 import BotaoCarrinho from "./Components/BotaoCarrinho";
 import Carrinho from "./Components/ContainerCarrinho";
@@ -11,19 +12,54 @@ import Camisa5 from "./img/camisa5.jpg";
 import Camisa6 from "./img/camisa6.jpg";
 import Camisa7 from "./img/camisa7.jpg";
 import Camisa8 from "./img/camisa8.jpg";
-import styled from "styled-components";
+
+
 
 const ShopContainer = styled.div`
+border: 1px solid black; 
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+margin: 1vw;
+margin-top: 2vw;
+padding-left: 2vw;
+padding-right: 2vw;
+width: 100%;
 `;
+
+const DisplayProdutos = styled.div`
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 10px 10px;
+height: 95%;
+width: 100%;
+`;
+
+const Header = styled.div`
+displey: flex;
+margin: 40px 0;
+`;
+
+const P = styled.p`
+display: inline-block;
+margin: 0;
+font-size: 16px;
+font-weight: 600;
+`;
+
+const Select = styled.select`
+margin-left: 10px;
+`;
+
 export default class App extends React.Component {
   state = {
     carrinhoClick: false,
+
     listaDeProdutos: [
       {
         id: 1,
         name: "TESTE 1",
         value: 10,
-        imageUrl: 'https://picsum.photos/200/300',
+        imageUrl: Camisa1,
       },
       {
         id: 2,
@@ -68,13 +104,14 @@ export default class App extends React.Component {
         imageUrl: Camisa8,
       },
     ],
-    carrinhoClick: false,
   };
+
   onClickCarrinho = () => {
     this.setState({
       carrinhoClick: !this.state.carrinhoClick,
     });
   };
+
   render() {
     const produtos = this.state.listaDeProdutos.map((produtos) => {
       return (
@@ -85,12 +122,23 @@ export default class App extends React.Component {
         />
       );
     });
+
     const carrinhoClicado = this.state.carrinhoClick;
+
     if (!carrinhoClicado) {
       return (
         <ShopContainer>
           <Filtro />
-          <div onChange={this.onChangeCarrinho}>{produtos}</div>
+          <Header>
+            <P>Quantidade de produtos:</P>
+            <Select>
+              <option>Preço:Crescente</option>
+              <option>Preço:Decrescente</option>
+            </Select>
+          </Header>
+          <DisplayProdutos onChange={this.onChangeCarrinho}>
+            {produtos}
+          </DisplayProdutos>
           <BotaoCarrinho onClickIcone={this.onClickCarrinho} />
         </ShopContainer>
       );
@@ -98,7 +146,16 @@ export default class App extends React.Component {
       return (
         <ShopContainer>
           <Filtro />
-          <div onChange={this.onChangeCarrinho}>{produtos}</div>
+          <Header>
+            <P>Quantidade de produtos:</P>
+            <Select>
+              <option>Preço:Crescente</option>
+              <option>Preço:Decrescente</option>
+            </Select>
+          </Header>
+          <DisplayProdutos onChange={this.onChangeCarrinho}>
+            {produtos}
+          </DisplayProdutos>
           <Carrinho />
           <BotaoCarrinho onClickIcone={this.onClickCarrinho} />
         </ShopContainer>

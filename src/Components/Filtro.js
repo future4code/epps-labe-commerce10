@@ -2,33 +2,47 @@ import React from "react";
 import styled from "styled-components";
 
 const FilterBox = styled.div`
-  margin: 1vw;
-  padding-left: 2vw;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  height: 97vh;
-  width: 25vw;
+
+
 `;
 
 const Input = styled.input`
-  display: flex;
-  margin-bottom: 1vh;
-  width: 75%;
+height: 35px;
+margin:0 30px 0 5px;
+width: 100%;
+`;
+
+const H2 = styled.h2`
+display: flex;
+justify-content: center;
+padding-bottom: 15px;
+font-size: 2em;
+font-weight: 600;
+margin: 0;
+`;
+
+const Form = styled.form`
+display: flex;
+justify-content: space-between;
+padding-bottom: 15px;
 `;
 
 class Filtro extends React.Component {
   render() {
     return (
       <FilterBox>
-      <h2>Filtro:</h2>
 
-      <label>Valor Mínimo:</label>
-      <Input type="number" onChange="" />
-      <label>Valor Máximo:</label>
-      <Input type="number" onChange="" />
-      <label>Buscar Produto:</label>
-      <Input type="text" onChange="" />
+      <H2>Crazy Shirts</H2>
+
+      <Form>
+      
+        <label>Valor Mínimo:</label>
+        <Input type="number" onChange="" placeholder="R$ 00,00" />
+        <label>Valor Máximo:</label>
+        <Input type="number" onChange="" placeholder="R$ 00,00" />
+        <label>Buscar Produto:</label>
+        <Input type="text" onChange="" placeholder="Digite o nome do produto" />
+      </Form>
     </FilterBox>
     )
   }
