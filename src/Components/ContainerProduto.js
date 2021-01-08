@@ -1,54 +1,53 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const Quantidade = styled.div`
-color: #333;
-font-size: 20px;
-font-weight: 600;
-line-height: 16px;
-margin: 20px 0;
-width: 100%;
+const ContainerProduto = styled.div`
+  border: dashed orange 1px;
+  font-size:larger;
+  height: 75%;
+`;
+const Imagem = styled.img`
+  height: 70%;
+  width: 100%;
+`;
+const P = styled.p`
+  display: flex;
+  justify-content: center;
+  font-weight: bold
+`;
+const Butao = styled.button`
+  background-color: white;
+  border-color: #004abe;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+  color: #004abe;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 5px ;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  &:hover {
+    background: #e9f0f7;
+    transition: all .4s ease-in-out;
+  }
 `;
 
-const Pics = styled.img`
-display: flex;
-height: 200px;
-width: 200px;
-`;
-
-const Button = styled.button`
-background-color: white;
-border-color: #004abe;
-border-radius: 4px;
-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
-color: #004abe;
-cursor: pointer;
-display: flex;
-font-size: 16px;
-font-weight: 600;
-line-height: 16px;
-padding: 5px 10px;
-
-&:hover {
-background: #e9f0f7;
-transition: all .4s ease-in-out;
+class Produto extends React.Component {
+  render() {
+    return (
+      <ContainerProduto>
+        <Imagem src={this.props.lista.imageUrl} alt={"imageUrl"} />
+        <P>{this.props.lista.name}</P>
+        <P>R$ {this.props.lista.value}</P>
+        <Butao onClick={this.props.adicionarCarrinho}>
+          Adicionar ao carrinho
+        </Butao>
+      </ContainerProduto>
+    );
+  }
 }
-`;
-
-
-class ContainerProduto extends React.Component {
-    render(){
-        return(
-            
-            <Quantidade>
-                <Pics src={this.props.imageUrl}/> 
-                <p>{this.props.name}</p>
-                <p>{this.props.value}</p>
-                <Button>Adicionar ao Carrinho</Button>
-           </Quantidade>
-        
-        )
-    }
-}
-
-export default ContainerProduto
+export default Produto;

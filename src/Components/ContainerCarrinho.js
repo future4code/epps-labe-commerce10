@@ -1,20 +1,38 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Carrinho = styled.div`
+background-color: #fff;
+min-height: 100vh;
+padding: 50px;
 
+position: fixed;
+right: 0;
+top: 0;
 `
 
-class ContainerCarrinho extends React.Component {
-    render(){
-        return(
-            <Carrinho>
-                <h3>Carrinho</h3>
-                <p>1x Produto <button>X</button></p>
-                <p>1x Produto<button>X</button></p>
-                <p>Total: R$ 396.00</p>
-            </Carrinho>
-        )
-    }
-} 
-export default ContainerCarrinho;
+const H3 = styled.h3`
+margin-bottom: 20px;
+`
+
+class Carrinho extends React.Component {
+  render() {
+    return (
+      <ContainerCarrinho>
+        <h1>Carrinho:</h1>
+        {this.props.produto.map((element) => {
+          return (
+            <p>
+              {''}
+              {element.name}: {element.value}
+            </p>
+          );
+        })}
+        <p>
+          Total: <strong>R$ {this.props.total}</strong>
+        </p>
+      </ContainerCarrinho>
+    );
+  }
+}
+export default Carrinho;
