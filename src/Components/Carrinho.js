@@ -2,15 +2,28 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerCarrinho = styled.div`
-  border: solid 2px black;
+  width: 300px;
+  height: 600px;
+  border: 1px solid black;
+  padding: 16px;
 `;
 
 class Carrinho extends React.Component {
   render() {
     return (
       <ContainerCarrinho>
-        <h2>Carrinho:</h2>
-        <p>Total:</p>
+        <h1>Carrinho:</h1>
+        {this.props.produto.map((element) => {
+          return (
+            <p>
+              {''}
+              {element.name}: {element.value}
+            </p>
+          );
+        })}
+        <p>
+          Total: <strong>R$ {this.props.total}</strong>
+        </p>
       </ContainerCarrinho>
     );
   }
