@@ -4,12 +4,16 @@ import styled from "styled-components";
 const ContainerProduto = styled.div`
   border: dashed orange 1px;
   font-size:larger;
-
-
+  height: 75%;
 `;
 const Imagem = styled.img`
-  height: 60%;
+  height: 70%;
   width: 100%;
+`;
+const P = styled.p`
+  display: flex;
+  justify-content: center;
+  font-weight: bold
 `;
 const Butao = styled.button`
   background-color: white;
@@ -26,6 +30,10 @@ const Butao = styled.button`
   width:100%;
   display:flex;
   justify-content:center;
+  &:hover {
+    background: #e9f0f7;
+    transition: all .4s ease-in-out;
+  }
 `;
 
 class Produto extends React.Component {
@@ -33,8 +41,8 @@ class Produto extends React.Component {
     return (
       <ContainerProduto>
         <Imagem src={this.props.lista.imageUrl} alt={"imageUrl"} />
-        <p>{this.props.lista.name}</p>
-        <p>R$ {this.props.lista.value}</p>
+        <P>{this.props.lista.name}</P>
+        <P>R$ {this.props.lista.value}</P>
         <Butao onClick={this.props.adicionarCarrinho}>
           Adicionar ao carrinho
         </Butao>
@@ -42,5 +50,4 @@ class Produto extends React.Component {
     );
   }
 }
-
 export default Produto;

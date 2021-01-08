@@ -15,29 +15,24 @@ import Camisa8 from "./img/camisa8.jpg";
 const Principal = styled.div`
   display: flex;
 `;
-
 const ContainerDeProdutos = styled.section`
   display: flex;
   flex-direction: row;
 `;
-
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-
 const ContainerProdutos = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding-bottom: 8px;
 `;
-
 const ContainerMeio = styled.div`
   margin: 10px;
 `;
-
 const BotaoCarrinho = styled.div`
   background-color: #ffffff;
   box-shadow: black 0px 0px 5px;
@@ -55,7 +50,6 @@ const BotaoCarrinho = styled.div`
 const Icone = styled.img`
   height: 50px;
 `;
-
 class App extends React.Component {
   state = {
     componenteCarrinho: false,
@@ -65,99 +59,82 @@ class App extends React.Component {
     arrayCarrinho: [],
     inputCrescente: "Crescente",
     valueTotal: "",
-
     ListaProdutos: [
       {
         id: 1,
-        name: "Teste 1",
+        name: "Camisa Nasa",
         value: 15.0,
         imageUrl: Camisa1,
       },
       {
         id: 2,
-        name: "Teste 2",
+        name: "Camisa Alucinante",
         value: 35.0,
         imageUrl: Camisa2,
       },
       {
         id: 3,
-        name: "Teste 3",
+        name: "Camisa Planetas",
         value: 25.0,
         imageUrl: Camisa3,
       },
       {
         id: 4,
-        name: "Teste 4",
+        name: "Camisa ET",
         value: 20.0,
         imageUrl: Camisa4,
       },
       {
         id: 5,
-        name: "Teste 5",
+        name: "Camisa Astronomia",
         value: 40.0,
         imageUrl: Camisa5,
       },
       {
         id: 6,
-        name: "Teste 6",
+        name: "Camisa ET",
         value: 60.0,
         imageUrl: Camisa6,
       },
       {
         id: 7,
-        name: "Teste 7",
+        name: "Camisa Astronauta",
         value: 45.0,
         imageUrl: Camisa7,
       },
       {
         id: 8,
-        name: "Teste 8",
+        name: "Camisa Espaco",
         value: 80.0,
         imageUrl: Camisa8,
       },
     ],
   };
-
   renderizaCarrinho = () => {
     this.setState({ componenteCarrinho: !this.state.componenteCarrinho });
   };
-
   onChangeMinimo = (event) => {
     this.setState({ valueMinimo: event.target.value });
   };
-
   onChangeMaximo = (event) => {
     this.setState({ valueMaximo: event.target.value });
   };
-
   funcaoProcurar = (event) => {
     this.setState({ buscar: event.target.value });
   };
-
   adicionarCarrinho = (id) => {
     const adiciona = this.state.ListaProdutos.forEach((item) => {
       if (id === item.id) {
         this.state.arrayCarrinho.push(item);
       }
     });
-
     let soma = this.state.arrayCarrinho.reduce(
       (valorAnterior, numero) => valorAnterior + numero.value,
       0
     );
-
     this.setState({ valueTotal: soma });
   };
-
-  //Tentativa de deletar do carrinho
-
-  // DeletarCarrinho = (id) => {
-  //   let lista = [...this.state.arrayCarrinho]
-  //   let product = this.state.arrayCarrinho.findIndex((product)=>product.id === id)
-  //   lista.splice(product,1)
-  //   this.setState({arrayCarrinho:lista})
-  // }
-
+ 
   onChangeCrecente = (event) => {
     this.setState({ inputCrescente: event.target.value });
     switch (this.state.inputCrescente) {
@@ -177,7 +154,6 @@ class App extends React.Component {
         return true;
     }
   };
-
   render() {
     let listaFiltrada = this.state.ListaProdutos;
     if (this.state.valueMinimo !== "") {
@@ -199,7 +175,6 @@ class App extends React.Component {
           : false;
       });
     }
-
     return (
       <Principal>
         <Filtro
@@ -251,5 +226,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;

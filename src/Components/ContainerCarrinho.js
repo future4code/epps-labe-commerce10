@@ -1,14 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const ContainerCarrinho = styled.div`
+const Carrinho = styled.div`
+background-color: #fff;
+min-height: 100vh;
+padding: 50px;
 
-width: 300px;
-height: 600px;
-border: 1px solid black;
-padding: 16px;
+position: fixed;
+right: 0;
+top: 0;
+`
 
-`;
+const H3 = styled.h3`
+margin-bottom: 20px;
+`
 
 class Carrinho extends React.Component {
   render() {
@@ -30,5 +35,4 @@ class Carrinho extends React.Component {
     );
   }
 }
-
 export default Carrinho;

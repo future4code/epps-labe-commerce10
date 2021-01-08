@@ -1,6 +1,7 @@
 // import React from "react";
 // import styled from "styled-components";
 
+
 // const ContainerBotaoCarrinho = styled.button`
 //   background-color: white;
 //   border: solid 2px #f2f2f2;
@@ -13,9 +14,27 @@
 //   padding: 10px;
 // `;
 
+
 // const Icone = styled.img`
 // height:50px;
 // `;
+
+// // const ContainerBotaoCarrinho = styled.button`
+// //   background-color: white;
+// //   border: solid 2px #f2f2f2;
+// //   border-radius: 50%;
+// //   position: fixed;
+// //   right: 20px;
+// //   bottom: 20px;
+// //   width: 80px;
+// //   height: 80px;
+// //   padding: 10px;
+// // `;
+
+// // const Icone = styled.img`
+// // height:50px;
+// // `;
+
 
 // class BotaoCarrinho extends React.Component {
 //   render() {
